@@ -45,9 +45,16 @@ public class UserInformationMain {
 					
 				
 				case 2:
-					modifyUser();
-					break;
-					
+					boolean flag1 =modifyUser();
+					if(flag1) 
+					{
+						break;
+					}
+					else
+					{
+						continue;
+					}
+										
 				case 3:
 					deleteUser();
 					break;
@@ -100,10 +107,62 @@ public class UserInformationMain {
 		}
 	}
 
-	private static void modifyUser() 
+	private static boolean modifyUser() 
 	{
+		Scanner sc = new Scanner(System.in); 		
+		System.out.println("Enter User ID:");
+		@SuppressWarnings("resource")
 		
+		String uid = sc.next();
 		
+		for(UserData user : ApplicationConstants.users) 
+		{
+			if(user.getEmpID().equals(uid)) 
+			{
+				System.out.print("Enter Name:");
+				if(sc.hasNext("[A-Za-z]*")) 
+				{
+					String name = sc.nextLine();
+					user.setName(name);
+				}
+				else
+				{
+					System.out.print("Invalid Input");
+					return false;
+				}
+				
+				System.out.print("Enter Address:");
+				
+				if(sc.hasNext("[A-Za-z0-9]*")) 
+				{
+					String address = sc.nextLine();
+					user.setAddress(address);
+				}
+				else
+				{
+					System.out.print("Invalid Input");
+					return false;
+				}
+				
+				System.out.print("Enter Age:");
+				
+				if(sc.hasNextInt()) 
+				{
+					int age = sc.nextInt();
+					user.setAge(age);
+				}
+				else
+				{
+					System.out.print("Invalid Input");
+					return false;
+				}
+				
+				System.out.println("User data modified ...");
+			
+				
+			}
+		}
+		return true;	
 	}
 
 	private static boolean adduser() 
