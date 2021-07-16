@@ -1,11 +1,13 @@
+package com.tcs.main;
 import com.tcs.batch3.base.BaseUser;
+import java.util.*;
 
 public class UserData extends BaseUser{
 
 	String name;
 	Integer age;
 	String address;
-	Integer empID;
+	String empID;
 	
 	
 	
@@ -27,15 +29,14 @@ public class UserData extends BaseUser{
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public Integer getEmpID() {
+
+	public void createID()
+	{
+		String empID = UUID.randomUUID().toString();
+		System.out.println("User ID" + empID + " generated...");
+	}
+	public String getEmpID() 
+	{
 		return empID;
-	}
-	public void setEmpID(Integer empID) {
-		this.empID = empID;
-	}
-	
-	
-	
-	
-	
+	}	
 }
