@@ -1,7 +1,7 @@
-package com.tcs.main;
 //import java.util.LinkedList;
 //import java.util.List;
 import java.util.Scanner;
+import java.lang.*;
 
 //import com.tcs.batch3.base.UserService;
 //import com.tcs.batch3.base.UserServiecImpl;
@@ -101,7 +101,7 @@ public class UserInformationMain {
 				break;
 			}
 		}
-		System.out.println("User details displayed...");
+		System.out.println("User deleted ....");
 		
 	}
 
@@ -143,47 +143,59 @@ public class UserInformationMain {
 		{
 			if(user.getEmpID().equals(uid)) 
 			{
-				System.out.print("Enter Name:");
-				if(sc.hasNext("[A-Za-z]*")) 
+				System.out.println("Select a field to edit from below" + "/n" + "1. Name /n 2. Address /n 3. Age \n");
+
+				int choice=sc.nextInt();
+				switch(choice) 
 				{
-					String name = sc.nextLine();
-					user.setName(name);
+						
+					case 1:
+							
+						System.out.print("Enter Name:");
+						if(sc.hasNext("[A-Za-z]*")) 
+						{
+							String name = sc.nextLine();
+							user.setName(name);
+						}
+						else
+						{
+								System.out.print("Invalid Input");
+						}
+						break;
+						
+					case 2:
+							
+						System.out.print("Enter Address:");
+						if(sc.hasNext("[A-Za-z0-9]*")) 
+						{
+							String address = sc.nextLine();
+							user.setAddress(address);
+						}
+						else
+						{
+							System.out.print("Invalid Input");
+						}
+						break;
+							
+					case 3:
+							
+						System.out.print("Enter Age:");
+						if(sc.hasNextInt()) 
+						{
+							int age = sc.nextInt();
+							user.setAge(age);
+						}
+						else
+						{
+							System.out.print("Invalid Input");
+						}
+						break;
+						
+					default:
+					
+						System.out.println("Invalid input");	
+						break;
 				}
-				else
-				{
-					System.out.print("Invalid Input");
-					return false;
-				}
-				
-				System.out.print("Enter Address:");
-				
-				if(sc.hasNext("[A-Za-z0-9]*")) 
-				{
-					String address = sc.nextLine();
-					user.setAddress(address);
-				}
-				else
-				{
-					System.out.print("Invalid Input");
-					return false;
-				}
-				
-				System.out.print("Enter Age:");
-				
-				if(sc.hasNextInt()) 
-				{
-					int age = sc.nextInt();
-					user.setAge(age);
-				}
-				else
-				{
-					System.out.print("Invalid Input");
-					return false;
-				}
-				
-				System.out.println("User data modified ...");
-			
-				
 			}
 		}
 		return true;	
