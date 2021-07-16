@@ -101,7 +101,7 @@ public class UserInformationMain {
 				break;
 			}
 		}
-		System.out.println("User deleted ....");
+		System.out.println("User details displayed...");
 		
 	}
 
