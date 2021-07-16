@@ -62,7 +62,9 @@ public class UserInformationMain {
 				case 4:
 					viewAll();
 					break;
-				
+				case 5:
+					viewSelectUser();
+					break;
 				
 				default:
 				{
@@ -78,6 +80,28 @@ public class UserInformationMain {
 		
 	}
 		
+		
+	}
+
+	private static void viewSelectUser() 
+	{
+		System.out.println("Enter User ID:");
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in); 
+		String uid = sc.next();
+		
+		for(UserData user : ApplicationConstants.users) 
+		{
+			if(user.getEmpID().equals(uid)) 
+			{
+				System.out.println("========================================================Users======================================================================");
+				System.out.println("User ID \t Name \t Age \t Address");
+				System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
+				System.out.println(user.getEmpID() + "\t\t" + user.getName() + "\t" + user.getAge() + "\t" + user.getAddress());
+				break;
+			}
+		}
+		System.out.println("User deleted ....");
 		
 	}
 
