@@ -32,7 +32,7 @@ public class UserData extends BaseUser{
 
 	public void createID()
 	{
-		String empID = UUID.randomUUID().toString();
+		empID = UUID.randomUUID().toString();
 		System.out.println("User ID" + empID + " generated...");
 	}
 	public String getEmpID() 
