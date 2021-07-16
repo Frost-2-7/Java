@@ -59,10 +59,10 @@ public class UserInformationMain {
 					deleteUser();
 					break;
 					
-				case 4:
+				case 5:
 					viewAll();
 					break;
-				case 5:
+				case 4:
 					viewSelectUser();
 					break;
 				
